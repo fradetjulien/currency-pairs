@@ -16,9 +16,23 @@ brew install pipenv
 
 ## Usage
 
+If you want to test the script manually, you can achieve this by doing :
+
 ```bash
-pipenv run python3 module/index.py
+cd module
+pipenv run python3 index.py
 ```
+
+## Executable
+
+If you want to build a cross-platform executable, you need to execute the following bash commands :
+
+```bash
+cd module
+pipenv run pyinstaller index.py --onefile
+```
+
+The executable file will be located on the generated dist folder.
 
 ## License
 
