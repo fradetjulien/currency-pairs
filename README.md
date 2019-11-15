@@ -16,6 +16,9 @@ brew install pipenv
 
 ## Usage
 
+```bash
+pipenv run python3 module/index.py
+```
 
 ## License
 
