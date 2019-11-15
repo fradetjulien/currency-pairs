@@ -7,13 +7,12 @@ Python 3 and Pipenv are required in order to run this program.
 
 ### OSX
 
-'''bash
+```bash
 brew install python3
-'''
-
-'''bash
+```
+```bash
 brew install pipenv
-'''
+```
 
 ## Usage
 
