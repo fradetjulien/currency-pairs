@@ -20,6 +20,7 @@ If you want to test the script manually, you can achieve this by doing :
 
 ```bash
 cd module
+pipenv install
 pipenv run python3 index.py
 ```
 
@@ -29,6 +30,7 @@ If you want to build a cross-platform executable, you need to execute the follow
 
 ```bash
 cd module
+pipenv install
 pipenv run pyinstaller index.py --onefile
 ```
 
