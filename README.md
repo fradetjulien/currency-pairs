@@ -27,7 +27,7 @@ pipenv run python3 index.py
 ## Example
 
 <p align="center">
-  <img src="assets/usage-example.png" width="350" title="hover text">
+  <img src="assets/usage-example.png" width="650">
 </p>
 
 ## Executable
