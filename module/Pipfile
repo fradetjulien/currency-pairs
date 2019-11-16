@@ -11,6 +11,8 @@ ipython = "*"
 forex-python = "*"
 click = "*"
 pycountry = "*"
+pandas = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.7"
