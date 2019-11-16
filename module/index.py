@@ -46,11 +46,15 @@ def display_rates(conversion_rates, currency_codes):
 @click.group()
 def cli():
     '''
+    Currency Matrix
     '''
 
 @cli.command('convert')
 @click.argument('currency_codes', nargs=-1)
 def convert_currencies(currency_codes):
+    '''
+    Display conversion rates of currency codes
+    '''
     if is_currency_code(currency_codes):
         conversion_rates = find_conversion_rates(currency_codes)
         display_rates(conversion_rates, currency_codes)
