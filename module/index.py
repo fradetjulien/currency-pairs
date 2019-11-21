@@ -29,7 +29,7 @@ def find_conversion_rates(currency_codes):
     while position < arguments_length:
         index = 0
         while index < arguments_length:
-            value.append(round(float(currency.get_rate(currency_codes[position], currency_codes[index])), 5))
+            value.append(round(float(currency.get_rate(currency_codes[index], currency_codes[position])), 5))
             index = index + 1
         conversion_rates[currency_codes[position]] = value.copy()
         value.clear()
