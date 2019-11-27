@@ -1,20 +1,18 @@
+'''
+Currency Matrix
+'''
 import click
 import pycountry
 import pandas as pd
 from forex_python.converter import CurrencyRates
 
-def is_currency_code(currency_codes):
+def display_rates(conversion_rates, currency_codes):
     '''
-    Recover the official list of currency code and then check if the arguments are correct
+    Display a datatable in the CLI showing all conversion rates
     '''
-    currency_code_list = []
-    for item in list(pycountry.currencies):
-        currency_code_list.append(str(item).split(',')[0][-4:-1])
-    for currency_code in currency_codes:
-        if currency_code not in currency_code_list:
-            print("Insert a correct currency code please.")
-            return False
-    return True
+    data_frame = pd.DataFrame(conversion_rates, columns=currency_codes,\
+                              index=currency_codes, dtype=float)
+    print(data_frame)
 
 def find_conversion_rates(currency_codes):
     '''
@@ -29,19 +27,29 @@ def find_conversion_rates(currency_codes):
     while position < arguments_length:
         index = 0
         while index < arguments_length:
-            value.append(round(float(currency.get_rate(currency_codes[index], currency_codes[position])), 5))
+            value.append(round(float(currency.get_rate(currency_codes[index],\
+                                    currency_codes[position])), 5))
             index = index + 1
         conversion_rates[currency_codes[position]] = value.copy()
         value.clear()
         position = position + 1
     return conversion_rates
 
-def display_rates(conversion_rates, currency_codes):
+def is_currency_code(currency_codes):
     '''
-    Display a datatable in the CLI showing all conversion rates
+    Recover the official list of currency code and then check if the arguments are correct
     '''
-    data_frame = pd.DataFrame(conversion_rates, columns=currency_codes, index=currency_codes, dtype=float)
-    print(data_frame)
+    currency_code_list = []
+    for item in list(pycountry.currencies):
+        currency_code_list.append(str(item).split(',')[0][-4:-1])
+    if len(currency_codes) == 0:
+        print("Please, insert at least one Currency Code.")
+        return False
+    for currency_code in currency_codes:
+        if currency_code not in currency_code_list:
+            print("Insert a correct currency code please.")
+            return False
+    return True
 
 @click.group()
 def cli():
